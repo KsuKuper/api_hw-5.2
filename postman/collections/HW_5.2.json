@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "bf62e00c-ee08-4cb3-8d04-6b16cb4b5f05",
+		"name": "HW_5.2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20300544-bf62e00c-ee08-4cb3-8d04-6b16cb4b5f05"
+	},
+	"item": [
+		{
+			"name": "Create user with cvs file",
+			"item": [
+				{
+					"name": "create task",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6f3b78b1-dfeb-40bf-ac97-5ebc4a09ca0a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e814670b-eb24-4623-8539-0495e41035b4",
+								"exec": [
+									"let jsonBody = pm.request.jsonBody;",
+									"",
+									"console.log(jsonBody?.title);",
+									"pm.collectionVariables.set(\"title\", jsonBody?.title);",
+									"console.log(jsonBody?.text);",
+									"pm.collectionVariables.set(\"text\", jsonBody?.text);",
+									"console.log(jsonBody?.answer);",
+									"pm.collectionVariables.set(\"answer\", jsonBody?.answer);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "6e165cdc-3bf0-4aaf-b63a-f64fcddc21a9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcwMDQ3ODE4MiwiYXV0aCI6IlJPTEVfQURNSU4iLCJpYXQiOjE3MDAzOTE3ODJ9.bFt6tfC3_MtWD9HESiyOhUnsLMeQLAs9fQFisuR6mWAzHcIcenSCw4GBimt4FYgxZY0NfoFbsuGkHuMGBgIocg"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "Webstorm-477bfb66=fe2764b1-cf24-4190-b17a-b4d72a3c50d4"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:8080"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:8080/task/new"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"119\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": {{title}},\n    \"text\": {{text}},\n    \"answer\": {{answer}}\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/tasks",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "7d3ef0d0-db9b-420c-a1e0-50c6dcd8ad70"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a91e5512-4323-4ae5-abaf-b6c07dd9950e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "61cc15f3-e351-408e-978f-be06035bfd44",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f4a514e3-1c69-46fe-8016-3c89591e6bf6",
+			"key": "baseURL",
+			"value": "http://localhost:8080"
+		},
+		{
+			"id": "bda4b51a-ef88-4603-bab3-ab8951368caf",
+			"key": "id",
+			"value": ""
+		},
+		{
+			"id": "8a019769-b2c8-4311-82a8-420d8fd7741b",
+			"key": "title",
+			"value": "{{title}}"
+		},
+		{
+			"id": "ef7d75c0-61f0-4f12-9db6-5e014a9a0ca2",
+			"key": "text",
+			"value": "{{text}}",
+			"type": "string"
+		},
+		{
+			"id": "6d088dd3-373c-46a2-9ac4-c0d009f96749",
+			"key": "answer",
+			"value": "{{answer}}",
+			"type": "string"
+		}
+	]
+}
